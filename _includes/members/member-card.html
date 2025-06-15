@@ -1,0 +1,28 @@
+<div class="wow animated fadeIn" data-wow-delay=".15s">
+    <a href="{{ member_url }}" class="project card text-themed" {%- if external and site.open_new_tab -%} target="_blank" {%- endif -%}>
+        {%- if member_img -%}
+        <img id="{{ member_id }}-img" class="card-img-top" src="{{ member_img }}" alt="{{ member_name }}" />
+        {%- endif -%}
+        <div class="card-body">
+            <h5 id="{{ member_id }}-name" class="card-title">
+                {{ member_name }}
+            </h5>
+            {%- if member_alias -%}
+            <h6 id="{{ member_id }}-alias" class="card-subtitle mb-2 text-muted">
+                ~ {{ member_alias }}
+            </h6>
+            {% endif -%}
+            <p id="{{ member_id }}-desc" class="card-text">{{ member_desc }}</p>
+            <p id="{{ member_id }}-roles" class="card-text">
+                {%- for tool in member_roles -%}
+                <span class="badge badge-pill text-primary border border-primary ml-1">{{ tool }}</span>
+                {%- endfor -%}
+            </p>
+            <p id="{{ member_id }}-pronouns" class="card-text">
+                {%- for pronoun in member_pronouns -%}
+                <span class="badge badge-pill text-danger border border-danger ml-1">{{ pronoun }}</span>
+                {%- endfor -%}
+            </p>
+        </div>
+    </a>
+</div>
